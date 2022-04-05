@@ -14,8 +14,6 @@ public class ProducerConsumerTest {
     @Autowired
     Producer producer;
 
-    private static final AtomicInteger counter = new AtomicInteger();
-
     @Test
     public void testProducerConsumer() {
 
@@ -27,6 +25,7 @@ public class ProducerConsumerTest {
             }
         }).start();
 
+        AtomicInteger counter = new AtomicInteger();
         while (true) {
             int value = counter.getAndIncrement();
             if (value > 1000) break;
