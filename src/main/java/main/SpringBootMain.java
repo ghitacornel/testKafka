@@ -13,6 +13,7 @@ public class SpringBootMain {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootMain.class, args);
 
+        // play like in PRODUCTION
         Producer producer = context.getBean(Producer.class);
         AtomicInteger counter = new AtomicInteger();
         while (true) {
@@ -20,5 +21,6 @@ public class SpringBootMain {
             if (value > 1000) break;
             producer.sendMessage("message " + value);
         }
+        // and wait for the effect
     }
 }
