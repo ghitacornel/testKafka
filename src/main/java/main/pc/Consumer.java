@@ -8,7 +8,7 @@ public class Consumer {
 
     @KafkaListener(topics = "topicName", groupId = "groupId")
     public void listenGroupFoo(String message) {
-        System.out.println("Received Message in group foo: " + message);
+        System.err.println("Received Message in group : " + message);
     }
 
 }
