@@ -10,13 +10,13 @@ import org.springframework.stereotype.Component;
 public class Producer {
 
     @Value(value = "${kafka.stringTopicName}")
-    private String topicName;
+    private String stringTopicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;
 
     public void sendMessage(String message) {
         System.out.println("producing message : " + message);
-        kafkaTemplate.send(topicName, message);
+        kafkaTemplate.send(stringTopicName, message);
     }
 
 }
