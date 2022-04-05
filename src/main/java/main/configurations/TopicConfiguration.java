@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaTopicConfiguration {
+public class TopicConfiguration {
 
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
@@ -20,14 +20,14 @@ public class KafkaTopicConfiguration {
     private String topicName;
 
     @Bean
-    public KafkaAdmin kafkaAdmin() {
+    KafkaAdmin kafkaAdmin() {
         Map<String, Object> configs = new HashMap<>();
         configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapAddress);
         return new KafkaAdmin(configs);
     }
 
     @Bean
-    public NewTopic topicCustom() {
+    NewTopic topicCustom() {
         return new NewTopic(topicName, 1, (short) 1);
     }
 }
