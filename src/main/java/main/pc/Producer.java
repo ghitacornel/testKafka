@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class Producer {
 
-    @Value(value = "${kafka.topicName}")
+    @Value(value = "${kafka.stringTopicName}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;

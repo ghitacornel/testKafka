@@ -16,8 +16,8 @@ public class TopicConfiguration {
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;
 
-    @Value(value = "${kafka.topicName}")
-    private String topicName;
+    @Value(value = "${kafka.stringTopicName}")
+    private String stringTopicName;
 
     @Bean
     KafkaAdmin kafkaAdmin() {
@@ -27,7 +27,7 @@ public class TopicConfiguration {
     }
 
     @Bean
-    NewTopic topicCustom() {
-        return new NewTopic(topicName, 1, (short) 1);
+    NewTopic stringTopic() {
+        return new NewTopic(stringTopicName, 1, (short) 1);
     }
 }
