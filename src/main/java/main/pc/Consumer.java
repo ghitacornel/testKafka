@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Consumer {
 
-    @KafkaListener(topics = "topicName", groupId = "groupId")
+    @KafkaListener(topics = "topicName")
     public void listenGroupFoo(String message) {
-        System.err.println("Received Message in group : " + message);
+        System.err.println("Consuming message : " + message);
     }
 
 }
