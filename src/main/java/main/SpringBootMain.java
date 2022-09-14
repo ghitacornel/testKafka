@@ -1,6 +1,6 @@
 package main;
 
-import main.pc.Producer;
+import main.producer.Producer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;

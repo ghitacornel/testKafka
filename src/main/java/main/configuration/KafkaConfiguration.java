@@ -1,4 +1,4 @@
-package main.configurations;
+package main.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.annotation.EnableKafka;

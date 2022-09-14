@@ -1,4 +1,4 @@
-package main.pc;
+package main.producer;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
