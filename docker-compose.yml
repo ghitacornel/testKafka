@@ -1,4 +1,19 @@
 services:
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: localhost:29092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: localhost:2181
+    ports:
+      - "8081:8080"
+    depends_on:
+      - zookeeper-1
+      - zookeeper-2
+      - kafka-1
+      - kafka-2
+
   zookeeper-1:
     image: confluentinc/cp-zookeeper:latest
     environment:
