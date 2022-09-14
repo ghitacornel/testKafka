@@ -7,9 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class StringProducer {
+public class JsonProducer {
 
-    @Value(value = "${kafka.stringTopicName}")
+    @Value(value = "${kafka.jsonTopicName}")
     private String topicName;
 
     private final KafkaTemplate<String, String> kafkaTemplate;

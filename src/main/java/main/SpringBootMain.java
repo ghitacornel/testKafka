@@ -1,6 +1,7 @@
 package main;
 
 import lombok.RequiredArgsConstructor;
+import main.producer.JsonProducer;
 import main.producer.StringProducer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -26,11 +27,17 @@ public class SpringBootMain {
     @Component
     @RequiredArgsConstructor
     public static class Timer {
-        private final StringProducer producer;
+        private final StringProducer stringProducer;
+        private final JsonProducer jsonProducer;
 
         @Scheduled(fixedRate = 1000)
-        public void reportCurrentTime() {
-            producer.sendMessage("message " + new Date());
+        public void stringProducer() {
+            stringProducer.sendMessage("string message " + new Date());
+        }
+
+        @Scheduled(fixedRate = 1000)
+        public void jsonProducer() {
+            jsonProducer.sendMessage("json message " + new Date());
         }
     }
 
