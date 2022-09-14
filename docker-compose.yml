@@ -1,5 +1,6 @@
 services:
 
+  #http://localhost:8081/ui/clusters/local/topics
   kafka-ui:
     image: provectuslabs/kafka-ui
     environment:
