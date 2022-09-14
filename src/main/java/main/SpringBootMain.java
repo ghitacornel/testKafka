@@ -1,6 +1,6 @@
 package main;
 
-import main.producer.Producer;
+import main.producer.StringProducer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,7 +14,7 @@ public class SpringBootMain {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootMain.class, args);
 
         // play like in PRODUCTION
-        Producer producer = context.getBean(Producer.class);
+        StringProducer producer = context.getBean(StringProducer.class);
         AtomicInteger counter = new AtomicInteger();
         while (true) {
             int value = counter.getAndIncrement();

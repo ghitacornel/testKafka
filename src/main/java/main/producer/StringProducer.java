@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class Producer {
+public class StringProducer {
 
     @Value(value = "${kafka.stringTopicName}")
     private String stringTopicName;

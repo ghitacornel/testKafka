@@ -4,7 +4,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Consumer {
+public class StringConsumer {
 
     @KafkaListener(topics = "stringTopicName", groupId = "groupId")
     public void consumeMessage(String message) {

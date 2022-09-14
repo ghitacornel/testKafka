@@ -1,6 +1,6 @@
 package main;
 
-import main.producer.Producer;
+import main.producer.StringProducer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class ProducerConsumerTest {
+public class StringProducerStringConsumerTest {
 
     @Autowired
-    Producer producer;
+    StringProducer producer;
 
     @Test
     public void testProducerConsumer() {
