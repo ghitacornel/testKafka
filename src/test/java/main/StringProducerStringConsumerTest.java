@@ -1,5 +1,6 @@
 package main;
 
+import main.producer.JsonProducer;
 import main.producer.StringProducer;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class StringProducerStringConsumerTest {
 
     @Autowired
-    StringProducer producer;
+    StringProducer stringProducer;
+
+    @Autowired
+    JsonProducer jsonProducer;
 
     @Test
     public void testProducerConsumer() {
@@ -25,11 +29,19 @@ public class StringProducerStringConsumerTest {
             }
         }).start();
 
-        AtomicInteger counter = new AtomicInteger();
+        AtomicInteger counter;
+        counter = new AtomicInteger();
         while (true) {
             int value = counter.getAndIncrement();
-            if (value > 1000) break;
-            producer.sendMessage("message " + value);
+            if (value > 100) break;
+            stringProducer.sendMessage("string message " + value);
+        }
+
+        counter = new AtomicInteger();
+        while (true) {
+            int value = counter.getAndIncrement();
+            if (value > 100) break;
+            jsonProducer.sendMessage("json message " + value);
         }
 
         new Thread(() -> {
