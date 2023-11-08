@@ -1,6 +1,7 @@
 package main.consumer;
 
 import lombok.extern.java.Log;
+import main.model.DataModel;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
@@ -8,8 +9,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class JsonConsumer {
 
-    @KafkaListener(topics = "jsonTopicName")
-    public void consumeMessage(String message) {
+    @KafkaListener(topics = "jsonTopicName", containerFactory = "kafkaListenerDataModelContainerFactory")
+    public void consumeMessage(DataModel message) {
         log.info("Consuming json message : " + message);
     }
 
