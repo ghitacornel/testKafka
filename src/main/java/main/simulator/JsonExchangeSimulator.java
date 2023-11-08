@@ -15,7 +15,7 @@ public class JsonExchangeSimulator {
 
     private int count = -1;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 1000, initialDelay = 500)
     public void sendMessage() {
         producer.sendMessage("json message sent " + (count--) + " " + new Date());
     }
