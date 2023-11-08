@@ -4,13 +4,11 @@ import lombok.RequiredArgsConstructor;
 import main.producer.JsonProducer;
 import main.producer.StringProducer;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.Date;
 
 @Configuration
-@EnableScheduling
 @RequiredArgsConstructor
 public class Timer {
     private final StringProducer stringProducer;
