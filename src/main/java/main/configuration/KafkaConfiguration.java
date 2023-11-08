@@ -12,7 +12,7 @@ import java.util.Map;
 
 @EnableKafka
 @Configuration
-public class KafkaConfiguration {
+class KafkaConfiguration {
 
     @Value(value = "${kafka.bootstrapAddress}")
     private String bootstrapAddress;

@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class TopicConfiguration {
+class TopicConfiguration {
 
     @Value(value = "${kafka.stringTopicName}")
     private String stringTopicName;
