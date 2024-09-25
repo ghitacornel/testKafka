@@ -18,7 +18,7 @@ public class JsonProducer {
     private final KafkaTemplate<String, DataModel> kafkaTemplate;
 
     public void sendMessage(DataModel message) {
-        log.info("producing message : " + message);
+        log.info("producing message : {}", message);
         kafkaTemplate.send(topicName, message);
     }
 
