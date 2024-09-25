@@ -10,7 +10,7 @@ public class StringConsumer {
 
     @KafkaListener(topics = "stringTopicName")
     public void consumeMessage(String message) {
-        log.info("Consuming string message : " + message);
+        log.info("Consuming string message : {}", message);
     }
 
 }
