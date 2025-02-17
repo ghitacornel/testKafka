@@ -5,7 +5,7 @@ services:
     image: provectuslabs/kafka-ui
     environment:
       KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: localhost:29092
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: "kafka-1:29092,kafka-2:39092,localhost:29092,localhost:39092,localhost:9092,kafka-1:9092,kafka-2:9092"
       KAFKA_CLUSTERS_0_ZOOKEEPER: localhost:2181
       KAFKA_CLUSTERS_0_READONLY: true
     ports:
