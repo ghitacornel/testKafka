@@ -11,6 +11,9 @@ public class StringConsumer {
     @KafkaListener(topics = "stringTopicName")
     public void consumeMessage(String message) {
         log.info("Consuming string message : {}", message);
+        lastMessage = message;
     }
+
+    public String lastMessage;
 
 }

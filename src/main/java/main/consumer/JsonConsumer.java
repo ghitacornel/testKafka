@@ -12,6 +12,9 @@ public class JsonConsumer {
     @KafkaListener(topics = "jsonTopicName", containerFactory = "kafkaListenerDataModelContainerFactory")
     public void consumeMessage(DataModel message) {
         log.info("Consuming json message : {}", message);
+        lastDataModel = message;
     }
+
+    public DataModel lastDataModel;
 
 }
