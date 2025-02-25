@@ -22,9 +22,11 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 @SpringBootTest
 public class KafkaTest {
 
+    // do not generate data while testing
     @MockitoBean
     private JsonExchangeSimulator jsonExchangeSimulator;
 
+    // do not generate data while testing
     @MockitoBean
     private StringExchangeSimulator stringExchangeSimulator;
 
@@ -42,20 +44,26 @@ public class KafkaTest {
 
     @Test
     public void test() {
+
+        // ensure startup time
         try {
             Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         Assertions.assertNull(jsonConsumer.lastDataModel);
         Assertions.assertNull(stringConsumer.lastMessage);
         jsonProducer.sendMessage(new DataModel());
         stringProducer.sendMessage("test message");
+
+        // ensure consuming time
         try {
-            Thread.sleep(10000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
+
         Assertions.assertNotNull(jsonConsumer.lastDataModel);
         Assertions.assertNotNull(stringConsumer.lastMessage);
         Assertions.assertEquals("test message", stringConsumer.lastMessage);

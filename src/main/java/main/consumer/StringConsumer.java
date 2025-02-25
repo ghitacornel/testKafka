@@ -14,6 +14,7 @@ public class StringConsumer {
         lastMessage = message;
     }
 
+    // for test only
     public String lastMessage;
 
 }

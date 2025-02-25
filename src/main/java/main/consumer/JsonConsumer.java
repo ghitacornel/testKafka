@@ -15,6 +15,7 @@ public class JsonConsumer {
         lastDataModel = message;
     }
 
+    // for test only
     public DataModel lastDataModel;
 
 }
