@@ -2,7 +2,7 @@ services:
 
   #http://localhost:8081/ui/clusters/local/topics
   kafka-ui:
-    image: provectuslabs/kafka-ui
+    image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui
     environment:
       KAFKA_CLUSTERS_0_NAME: local
